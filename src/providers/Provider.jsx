@@ -12,25 +12,19 @@ const CountriesProvider = ({children}) => {
 
 
   useEffect(() => {
-    setIsLoading(true); // Mettre à jour isLoading pour indiquer le chargement des données
+    setIsLoading(true);
   
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
         setData(json);
-        setIsLoading(false); // Mettre à jour isLoading pour indiquer la fin du chargement des données
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
-        setIsLoading(false); // Mettre à jour isLoading en cas d'erreur
+        setIsLoading(false); 
       });
   });
-  // useEffect(() => {
-  //   if (data.length !== 0) {
-  //     setIsLoading(false);
-  //   }
-  // }, [data]);
-
   function detailsPays(cle) {
     const cleRecherche = 'population';
     const valeurRecherche = cle;
